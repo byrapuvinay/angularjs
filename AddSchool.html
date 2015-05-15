@@ -1,0 +1,255 @@
+<html ng-app="nameApp" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+        var nameApp = angular.module('nameApp', []);
+        nameApp.controller('NameCtrl', function ($scope, $http) {
+
+            $scope.addSchool = function () {
+
+                $http.post('http://localhost:8090/test/school', $scope.school).
+                        success(function(data, status, headers, config) {
+                            alert("school details are added successfully ");
+                        }).
+                        error(function(data, status, headers, config) {
+                            alert("Failure");
+                        });
+
+                            };
+
+
+        });
+    </script>
+</head>
+<body class="container" ng-controller="NameCtrl">
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span class="label label-primary">SMS System</span></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        Admin <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="AddUser.html">Add User</a></li>
+                        <li><a href="AddSchool.html">Add School</a></li>
+                        <li><a href="AddStudent.html">Add Student</a></li>
+                        <li><a href="toberemoved/AddAccoutant.html">Add Accountant</a></li>
+                        <li><a href="AddTeacher.html">Add Teacher</a></li>
+                        <li><a href="AddFees.html">Add Fees</a></li>
+                    </ul>
+
+                </li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        Services <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="ReqTransferCertificate.html">Request Transfer Certificate</a></li>
+                        <li><a href="IssueReqTransferCertificate.html">Issue Transfer Certificate</a></li>
+                        <li><a href="AddStudent.html">Attendance Shortage Report</a></li>
+                        <li><a href="FeePendingReport.html">Fee Pending Report</a></li>
+                        <li><a href="TeacherClasses.html">Teacher - Classes</a></li>
+                    </ul>
+
+                </li>
+            </ul>
+
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<br/><br/><br/>
+
+<div  class="col-md-8 col-md-offset-2" ng-controller="NameCtrl">
+
+
+
+    <form novalidate  class="simple-form" ng-submit="addSchool()">
+        <h2> Add School Details</h2>
+        <br/>
+
+        <div class="panel panel-info">
+            <div class="panel-heading"><strong>School Details</strong></div>
+            <div class="panel-body">
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">School Name</span>
+                    <input type="text" class="form-control padinput" placeholder="First Name" aria-describedby="basic-addon1"
+                           ng-model="school.name" required />
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Affiliation Number</span>
+                    <input type="text" class="form-control padinput" placeholder="Affiliation Number" aria-describedby="basic-addon1"
+                           ng-model="school.affiliationNumber" required />
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Curriculam</span>
+                        <select ng-model="school.curriculam" class="form-control " >
+                            <option value="Nursery" selected>CBSE</option>
+                            <option value="LKG" selected>State</option>
+                            <option value="UKG" selected>ICSE</option>
+
+                        </select>
+                </div>
+
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Address Line1</span>
+                    <input type="email" class="form-control padinput" placeholder="Address Line1" aria-describedby="basic-addon1"
+                           ng-model="school.addressLine1"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Address Line2</span>
+                    <input type="email" class="form-control padinput" placeholder="Address Line2" aria-describedby="basic-addon1"
+                           ng-model="school.addressLine2"/>
+                </div>
+                </br>
+
+
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">City</span>
+                    <input type="email" class="form-control padinput" placeholder="City" aria-describedby="basic-addon1"
+                           ng-model="school.city"/>
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">State</span>
+                    <input type="email" class="form-control " placeholder="State" aria-describedby="basic-addon1"
+                           ng-model="school.state"/>
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Pincode</span>
+                    <input type="email" class="form-control padinput" placeholder="Pincode" aria-describedby="basic-addon1"
+                           ng-model="school.pincode"/>
+                </div>
+
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Phone Number 1</span>
+                    <input type="tel" class="form-control " placeholder="Date of Birth" aria-describedby="basic-addon1"
+                           ng-model="school.phoneNumber1"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Phone Number 2</span>
+                    <input type="tel" class="form-control " placeholder="Date of Birth" aria-describedby="basic-addon1"
+                           ng-model="school.phoneNumber2"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Phone Number 3</span>
+                    <input type="tel" class="form-control " placeholder="Date of Birth" aria-describedby="basic-addon1"
+                           ng-model="school.phoneNumber3"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Phone Number 4</span>
+                    <input type="tel" class="form-control " placeholder="Date of Birth" aria-describedby="basic-addon1"
+                           ng-model="school.phoneNumber4"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Mobile Number</span>
+                    <input type="tel" class="form-control " placeholder="Date of Birth" aria-describedby="basic-addon1"
+                           ng-model="school.mobileNumber"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Mail Id</span>
+                    <input type="mail" class="form-control " placeholder="Date of Birth" aria-describedby="basic-addon1"
+                           ng-model="school.mailId"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Fax</span>
+                    <input type="tel" class="form-control " placeholder="Fax" aria-describedby="basic-addon1"
+                           ng-model="school.fax"/>
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Classes Available</span>
+                    <select ng-model="school.classesAvailable" class="form-control " >
+                        <option value="Nursery" selected>Nursery</option>
+                        <option value="LKG" selected>LKG</option>
+                        <option value="UKG" selected>UKG</option>
+
+                        <option value="1" selected>1 (First)</option>
+                        <option value="2">2 (Second)</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+
+                </br>
+
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <div align="center">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+    <pre>form = {{school | json}}</pre>
+</div>
+
+</body>
+<style>
+.padleft{
+    align-content: center;
+    width: 15em;
+
+}
+
+.padinput{
+align-content: flex-start;
+    width: 40em;
+
+
+
+}
+
+
+</style>
+
+</html>

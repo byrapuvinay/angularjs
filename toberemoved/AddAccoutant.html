@@ -1,0 +1,45 @@
+<html ng-app="nameApp">
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+    <script src="../dist/ng-table.js"></script>
+    <link rel="stylesheet" href="../dist/ng-table.css">
+    <script data-require="angular.js@1.2.0-rc2" data-semver="1.2.0-rc2" src="http://code.angularjs.org/1.2.0-rc.2/angular.js"></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../directives.js"></script>
+
+</head>
+
+<div navbar="menuModule"></div>
+<body class="container" >
+
+<div  class="col-md-8 col-md-offset-2" ng-controller="addAccountantCtrl">
+    <form novalidate  class="simple-form" ng-submit="addUser()">
+        <h2> Add Accountant Details</h2>
+        <br/>
+
+        <div personal-details="menuModule"></div>
+        <div professional-details="menuModule" ></div>
+        <div parent-detaiils="menuModule" ></div>
+        <div professional-details="menuModule" ></div>
+        <div class="panel panel-info">
+             <div class="panel-body">
+                <div align="center">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+             </div>
+        </div>
+    </form>
+
+    <pre>form = {{teacher | json}}</pre>
+</div>
+
+</body>
+
+</html>

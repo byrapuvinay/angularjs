@@ -1,0 +1,80 @@
+<div class="panel panel-info" >
+    <div class="panel-heading"><strong>Personal Details</strong></div>
+    <div class="panel-body">
+        <div class="input-group  padinput">
+            <span class="input-group-addon padleft" id="basic-addon1">First Name</span>
+            <input type="text" class="form-control padinput" placeholder="First Name" aria-describedby="basic-addon1"
+                   ng-model="teacher.firstName" required />
+        </div>
+        </br>
+        <div class="input-group  padinput">
+            <span class="input-group-addon padleft" id="basic-addon1">Last Name</span>
+            <input type="text" class="form-control padinput" placeholder="Last Name" aria-describedby="basic-addon1"
+                   ng-model="teacher.lastName" required />
+        </div>
+        </br>
+        <div class="input-group  padinput">
+            <span class="input-group-addon padleft " id="basic-addon1">Middle Name</span>
+            <input type="text" class="form-control padinput" placeholder="Middle Name" aria-describedby="basic-addon1"
+                   ng-model="teacher.middleName" required />
+        </div>
+        </br>
+        <div class="input-group  padinput">
+            <span class="input-group-addon padleft" id="basic-addon1">Address Line1</span>
+            <input type="email" class="form-control padinput" placeholder="Address Line1" aria-describedby="basic-addon1"
+                   ng-model="teacher.addressLine1"/>
+        </div>
+        </br>
+
+        <div class="input-group  padinput">
+            <span class="input-group-addon padleft" id="basic-addon1">Address Line2</span>
+            <input type="email" class="form-control padinput" placeholder="Address Line2" aria-describedby="basic-addon1"
+                   ng-model="teacher.addressLine2"/>
+        </div>
+        </br>
+
+        <div class="input-group  padinput">
+            <span class="input-group-addon padleft" id="basic-addon1">City</span>
+            <input type="email" class="form-control padinput" placeholder="City" aria-describedby="basic-addon1"
+                   ng-model="teacher.city"/>
+        </div>
+        </br>
+        <div class="input-group  padinput">
+            <span class="input-group-addon padleft" id="basic-addon1">State</span>
+            <input type="email" class="form-control " placeholder="State" aria-describedby="basic-addon1"
+                   ng-model="teacher.state"/>
+        </div>
+
+        </br>
+        <div class="input-group  padinput">
+            <span class="input-group-addon padleft" id="basic-addon1">Date of Birth</span>
+            <input type="datetime-local" class="form-control " placeholder="Date of Birth" aria-describedby="basic-addon1"
+                   ng-model="teacher.dateofBirth"/>
+        </div>
+        </br>
+
+        <div class="input-group  padinput">
+            <span class="input-group-addon padleft" id="basic-addon1">Gender</span>
+            <select ng-model="teacher.gender" class="form-control " >
+                <option value="Male" selected>Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        </br>
+
+        <div class="input-group  padinput">
+            <span class="input-group-addon padleft" id="basic-addon1">Blood Group</span>
+            <select ng-model="teacher.bloodGroup" class="form-control " >
+                <option selected>A</option>
+                <option >B</option>
+            </select>
+        </div>
+        </br>
+        <div class="input-group  padinput">
+            <span class="input-group-addon padleft" id="basic-addon1">Date of Joining</span>
+            <input type="datetime-local" class="form-control " placeholder="Date of Joining" aria-describedby="basic-addon1"
+                   ng-model="teacher.dateofJoining"/>
+        </div>
+        </br>
+    </div>
+</div>

@@ -1,0 +1,125 @@
+<html ng-app="nameApp" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="dist/ng-table.js"></script>
+    <link rel="stylesheet" href="dist/ng-table.css">
+    <script data-require="angular.js@1.2.0-rc2" data-semver="1.2.0-rc2" src="http://code.angularjs.org/1.2.0-rc.2/angular.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="directives.js"></script>
+    <script>
+        var nameApp = angular.module('nameApp', [menuModule]);
+        nameApp.controller('NameCtrl', function ($scope, $http) {
+
+            $scope.addSchool = function () {
+
+                $http.post('http://localhost:8090/test/school', $scope.school).
+                        success(function(data, status, headers, config) {
+                            alert("school details are added successfully ");
+                        }).
+                        error(function(data, status, headers, config) {
+                            alert("Failure");
+                        });
+
+                            };
+
+
+        });
+    </script>
+</head>
+
+<body class="container" >
+<div navbar="menuModule"></div>
+
+
+
+<div  class="col-md-8 col-md-offset-2" ng-controller="NameCtrl">
+
+    <form novalidate  class="simple-form" ng-submit="addSchool()">
+        <h2> Add User Details</h2>
+        <br/>
+
+        <div class="panel panel-info" align="center">
+            <div class="panel-heading" align="left"><strong>User Details</strong></div>
+            <div class="panel-body">
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">School Name</span>
+                    <input type="text" class="form-control padinput" placeholder="First Name" aria-describedby="basic-addon1"
+                           ng-model="user.name" required />
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">User Name</span>
+                    <input type="text" class="form-control padinput" placeholder="Affiliation Number" aria-describedby="basic-addon1"
+                           ng-model="school.userName" required />
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">User Type</span>
+                        <select ng-model="user.userType" class="form-control " >
+                            <option selected>Admin</option>
+                            <option>Teacher</option>
+                            <option>Student</option>
+                            <option>Parent</option>
+                            <option>Accountant</option>
+                        </select>
+                </div>
+
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">User ID</span>
+                    <input type="email" class="form-control padinput" placeholder="User ID" aria-describedby="basic-addon1"
+                           ng-model="user.userId"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Password</span>
+                    <input type="password" class="form-control padinput" placeholder="Password" aria-describedby="basic-addon1"
+                           ng-model="user.password"/>
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Re-type Password</span>
+                    <input type="password" class="form-control padinput" placeholder="Password" aria-describedby="basic-addon1"
+                           ng-model="passwordCmp"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Phone Number</span>
+                    <input type="tel" class="form-control " placeholder="Phone Number" aria-describedby="basic-addon1"
+                           ng-model="user.phoneNumber"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Mail Id</span>
+                    <input type="mail" class="form-control " placeholder="Mail Id" aria-describedby="basic-addon1"
+                           ng-model="user.mailId"/>
+                </div>
+                </br>
+
+           </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <div align="center">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <pre>form = {{user | json}}</pre>
+</div>
+
+</body>
+
+</html>

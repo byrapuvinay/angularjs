@@ -1,0 +1,112 @@
+<div  class="col-md-8 col-md-offset-2" ng-controller="NameCtrl">
+    <form novalidate  class="simple-form" ng-submit="addUser()">
+        <h2> Add Student Details</h2>
+        <br/>
+
+        <div class="panel panel-info">
+            <div class="panel-heading"><strong>Student Details</strong></div>
+            <div class="panel-body">
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">First Name</span>
+                    <input type="text" class="form-control padinput" placeholder="First Name" aria-describedby="basic-addon1"
+                           ng-model="user.firstName" required />
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Last Name</span>
+                    <input type="text" class="form-control padinput" placeholder="Last Name" aria-describedby="basic-addon1"
+                           ng-model="user.lastName" required />
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft " id="basic-addon1">Middle Name</span>
+                    <input type="text" class="form-control padinput" placeholder="Middle Name" aria-describedby="basic-addon1"
+                           ng-model="user.middleName" required />
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Address Line1</span>
+                    <input type="email" class="form-control padinput" placeholder="Address Line1" aria-describedby="basic-addon1"
+                           ng-model="user.addressLine1"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Address Line2</span>
+                    <input type="email" class="form-control padinput" placeholder="Address Line2" aria-describedby="basic-addon1"
+                           ng-model="user.addressLine2"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">City</span>
+                    <input type="email" class="form-control padinput" placeholder="City" aria-describedby="basic-addon1"
+                           ng-model="user.city"/>
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">State</span>
+                    <input type="email" class="form-control " placeholder="State" aria-describedby="basic-addon1"
+                           ng-model="user.state"/>
+                </div>
+
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Date of Birth</span>
+                    <input type="datetime-local" class="form-control " placeholder="Date of Birth" aria-describedby="basic-addon1"
+                           ng-model="user.dateofBirth"/>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Section</span>
+                    <select ng-model="user.section" class="form-control " >
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                        <option>E</option>
+
+                    </select>
+                </div>
+
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Gender</span>
+                    <select ng-model="user.gender" class="form-control " >
+                        <option value="Male" selected>Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                </br>
+
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Blood Group</span>
+                    <select ng-model="user.bloodGroup" class="form-control " >
+                        <option selected>A</option>
+                        <option >B</option>
+                    </select>
+                </div>
+                </br>
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Date of Joining</span>
+                    <input type="datetime-local" class="form-control " placeholder="Date of Joining" aria-describedby="basic-addon1"
+                           ng-model="user.dateofJoining"/>
+                </div>
+                </br>
+            </div>
+        </div>
+        <div parent-detaiils="menuModule"></div>
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <div align="center">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+    <pre>form = {{user | json}}</pre>
+</div>

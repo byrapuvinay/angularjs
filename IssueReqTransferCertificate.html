@@ -1,0 +1,134 @@
+<html ng-app="nameApp" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+        var nameApp = angular.module('nameApp', []);
+        nameApp.controller('NameCtrl', function ($scope, $http) {
+
+            $scope.addUser = function () {
+
+                $http.post('http://localhost:8090/test/user', $scope.user).
+                        success(function(data, status, headers, config) {
+                            alert("User details are added successfully ");
+                        }).
+                        error(function(data, status, headers, config) {
+                            alert("Failure");
+                        });
+
+                            };
+
+
+        });
+    </script>
+</head>
+<body class="container" ng-controller="NameCtrl">
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span class="label label-primary">SMS System</span></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        Admin <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="AddUser.html">Add User</a></li>
+                        <li><a href="AddSchool.html">Add School</a></li>
+                        <li><a href="AddStudent.html">Add Student</a></li>
+                        <li><a href="toberemoved/AddAccoutant.html">Add Accountant</a></li>
+                        <li><a href="AddTeacher.html">Add Teacher</a></li>
+                        <li><a href="AddFees.html">Add Fees</a></li>
+                    </ul>
+
+                </li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        Services <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="ReqTransferCertificate.html">Request Transfer Certificate</a></li>
+                        <li><a href="IssueReqTransferCertificate.html">Issue Transfer Certificate</a></li>
+                        <li><a href="AddStudent.html">Attendance Shortage Report</a></li>
+                        <li><a href="toberemoved/AddAccoutant.html">Fee Pending Report</a></li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<br/><br/><br/>
+
+<div  class="col-md-8 col-md-offset-2" ng-controller="NameCtrl">
+    <form novalidate  class="simple-form" ng-submit="addUser()">
+        <h2> Issue Transfer Certificate</h2>
+        <br/>
+
+        <div class="panel panel-info" align="center">
+            <div class="panel-heading" align="left"><strong>Student Details</strong></div>
+            <div class="panel-body">
+                <div class="input-group  padinput">
+                    <span class="input-group-addon padleft" id="basic-addon1">Student Admission Number</span>
+                    <input type="text" class="form-control padinput" placeholder="Student Admission Number" aria-describedby="basic-addon1"
+                           ng-model="user.firstName" required />
+                </div>
+                </br>
+            </div>
+        </div>
+
+        <div class="panel panel-info">
+             <div class="panel-body">
+                <div align="center">
+                    <button type="submit" class="btn btn-default">Approve</button>
+                </div>
+             </div>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+<style>
+.padleft{
+    align-content: center;
+    width: 15em;
+    /*background-color: #c9daff;*/
+    /*font-style: normal;*/
+    /*color: rgba(32, 19, 40, 0.96);*/
+    /*visibility: hidden;*/
+
+}
+
+.padinput{
+align-content: flex-start;
+    width: 40em;
+    /*visibility: hidden;*/
+
+
+
+}
+
+
+</style>
+
+</html>
